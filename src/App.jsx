@@ -7,11 +7,12 @@ import Activate from './pages/Activate';
 import Forgot from './pages/Forgot';
 import ResetPassword from './pages/ResetPassword';
 import Profile from './pages/Profile';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
     <>
-      <div className='bg-[#f4f4f4]'>
+      <div>
         <Router>
           <Routes>
             <Route path='/home' element={<Home />} />
@@ -20,7 +21,8 @@ function App() {
             <Route path='/activate/:uid/:token' element={<Activate />} />
             <Route path='/forgot' element={<Forgot />} />
             <Route path='/password-reset/:uid/:token' element={<ResetPassword />} />
-            <Route path='/profile' element={<Profile/>} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/dashboard' element={<Dashboard/>} />
           </Routes>
         </Router>
       </div>

@@ -61,7 +61,7 @@ const LoginForm = () => {
 
     return (
         <>
-            <div className="main bg-[black] w-full font-[g-medium]">
+            <div className="main w-full font-[g-medium]">
                 <ToastContainer />
                 <Header/>
                 <div className="greet mt-5">
