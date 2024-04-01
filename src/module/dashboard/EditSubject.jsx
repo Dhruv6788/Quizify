@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../base/Navbar';
 import { useFormik } from 'formik';
 import { createSubjectSchema } from '../../schemas';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const EditSubject = () => {
     const { subject_code } = useParams();
     const [subject, setSubject] = useState({});
     const [file, setFile] = useState(null);
+    const navigateTo = useNavigate()
 
     useEffect(() => {
         const getSingleSubject = async () => {
@@ -53,13 +54,13 @@ const EditSubject = () => {
                 const response = await fetch(apiUrl, requestOptions)
                 const jsonData = await response.json()
                 console.log(jsonData)
+                navigateTo(`/${subject_code}`)
             } catch (error) {
                 console.error("Something Went Wrong!!!")
             }
         }
     });
 
-    // Update form values whenever subject changes
     useEffect(() => {
         setValues({
             subject_name: subject.name || '',
