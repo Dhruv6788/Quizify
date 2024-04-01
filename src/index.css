@@ -74,7 +74,6 @@
 html,
 body {
     scroll-behavior: smooth;
-    background: black;
 }
 
 @layer utilities {
@@ -82,6 +81,7 @@ body {
         -webkit-text-stroke: 1px #ffffff83;
         -webkit-text-fill-color: transparent;
     }
+
 }
 
 input:-webkit-autofill,
@@ -90,4 +90,12 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
     -webkit-transition-delay: 9999s;
+}
+
+
+@media (max-width: 767px) {
+    .mySwiper .swiper-button-next,
+    .mySwiper .swiper-button-prev {
+        display: none;
+    }
 }

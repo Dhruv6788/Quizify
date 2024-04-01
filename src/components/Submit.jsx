@@ -7,7 +7,7 @@ const Submit = ({ loading, title, onclick, bgColor, color }) => {
             <button
                 type="submit"
                 disabled={loading ? true : false}
-                className={`w-full font-[g-medium] flex justify-center bg-${bgColor} tracking-wide capitalize mt-5 py-3 px-10 rounded text-${color} cursor-pointer hover:bg-[#8fd08fa6]`}
+                className={`w-full font-[g-medium] flex justify-center bg-purple-400 tracking-wide capitalize mt-5 py-3 px-10 rounded text-white cursor-pointer hover:bg-purple-300`}
                 onClick={onclick}
             >
                 {loading ? <CircularProgress color="inherit" /> : title}

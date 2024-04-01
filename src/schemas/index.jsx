@@ -19,3 +19,9 @@ export const resetPasswordSchema = Yup.object({
     password: Yup.string().min(8).required("Please enter your password"),
     rePassword: Yup.string().required("Please confrim your password").oneOf([Yup.ref('password'), null], "Password must match")
 })
+
+export const createSubjectSchema = Yup.object({
+    subject_name: Yup.string().min(3).max(32).required("Please enter subject name"),
+    subject_code: Yup.number().min(3).required("Please enter subject code")
+})
+

@@ -1,18 +1,21 @@
 import './App.css'
-import Home from './pages/Home'
-import LoginForm from './pages/LoginForm'
+import Home from './module/base/Home'
+import LoginForm from './module/auth/LoginForm'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SignUp from './pages/SignUp';
-import Activate from './pages/Activate';
-import Forgot from './pages/Forgot';
-import ResetPassword from './pages/ResetPassword';
-import Profile from './pages/Profile';
-import Dashboard from './pages/Dashboard';
+import SignUp from './module/auth/SignUp';
+import Activate from './module/auth/Activate';
+import Forgot from './module/auth/Forgot';
+import ResetPassword from './module/auth/ResetPassword';
+import Dashboard from './module/dashboard/Dashboard';
+import SubjectDetail from './module/dashboard/SubjectDetail';
+import Students from './module/dashboard/Students';
+import AddSubject from './module/dashboard/AddSubject'
+import EditSubject from './module/dashboard/EditSubject';
 
 function App() {
   return (
     <>
-      <div>
+      <div className='font-[g-medium]'>
         <Router>
           <Routes>
             <Route path='/home' element={<Home />} />
@@ -21,8 +24,13 @@ function App() {
             <Route path='/activate/:uid/:token' element={<Activate />} />
             <Route path='/forgot' element={<Forgot />} />
             <Route path='/password-reset/:uid/:token' element={<ResetPassword />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/dashboard' element={<Dashboard/>} />
+            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/newsubject' element={<AddSubject />} />
+            <Route path='/:subject_code' element={<SubjectDetail />} />
+            <Route path='/:subject_code/students' element={<Students />} />
+            <Route path='/:subject_code/quizdetail' element={<SubjectDetail />} />
+            <Route path='/:subject_code/results' element={<SubjectDetail />} />
+            <Route path='/:subject_code/edit' element={<EditSubject />} />
           </Routes>
         </Router>
       </div>
