@@ -6,7 +6,7 @@ const Subjects = ({ title, subjectCode, onClick, subject, created_by, onDelete }
       <div className='flex items-center'>
         <h1 className='text-green-300 text-2xl font-[g-bold] px-3 pt-3'>{title}</h1>
       </div>
-      
+
       {!subject ? <div className='text-black px-3'>
         <h3 className='font-[g-medium] text-gray-400 mt-1'>Subject Code : {subjectCode}</h3>
         <div className='mt-4 text-lg'>

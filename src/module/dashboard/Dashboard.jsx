@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../base/Navbar';
 import Subjects from '../../components/Subjects';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
     const [subjects, setSubjects] = useState([]);
@@ -41,13 +41,10 @@ const Dashboard = () => {
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={1}
-                    navigation
                     autoplay={{
                         delay: 5000,
                     }}
                     className='mySwiper'
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
                 >
                     {subjects?.map((subject, index) => (
                         <SwiperSlide key={index}>

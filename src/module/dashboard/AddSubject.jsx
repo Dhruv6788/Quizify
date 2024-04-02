@@ -19,7 +19,7 @@ const AddSubject = () => {
     onSubmit: async (values, action) => {
       console.log(values)
       const formData = new FormData();
-      formData.append('file', file); 
+      formData.append('file', file);
       formData.append('subject_code', values.subject_code);
       formData.append('name', values.subject_name);
       const apiUrl = import.meta.env.VITE_CREATE_SUBJECT;
@@ -59,7 +59,7 @@ const AddSubject = () => {
           <div>
             <input
               type="text"
-              className='w-full border-b border-green-400 placeholder:text-xl text-xl py-2 outline-none'
+              className='w-full border border-green-400 placeholder:text-xl text-xl py-2 px-2 rounded-md outline-none'
               placeholder='Subject Name'
               id='subject_name'
               name='subject_name'
@@ -70,7 +70,7 @@ const AddSubject = () => {
           </div>
           <div className='mt-6'>
             <input type="text"
-              className='w-full border-b border-green-400 placeholder:text-xl text-xl py-2 outline-none'
+              className='w-full border border-green-400 placeholder:text-xl text-xl py-2 px-2 rounded-md outline-none'
               placeholder='Subject Code'
               id='subject_code'
               name='subject_code'

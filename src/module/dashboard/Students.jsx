@@ -38,9 +38,11 @@ const Students = () => {
         <div>
             <Navbar />
             <div>
-                <div className='px-3'>
-                    <h1 className='text-2xl font-[g-bold] text-green-600'>{Subject.name}</h1>
-                    <h2 className='text-lg text-green-700'>Student Details</h2>
+                <div className='w-full h-[6vh] bg-slate-700 flex items-center justify-between px-3 py-3'>
+                    <h2 className='text-2xl text-green-300 font-[g-bold]'>Students</h2>
+                    {/* <button  className='bg-green-300 w-[35px] h-[35px] flex justify-center items-center rounded-full'>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="black"><path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path></svg>
+                    </button> */}
                 </div>
                 <div className=' w-full h-[6vh] bg-green-100 flex px-2 font-[g-bold]'>
                     <div className='w-[10%] flex justify-center items-center h-full tracking-wider text-lg'>No.</div>

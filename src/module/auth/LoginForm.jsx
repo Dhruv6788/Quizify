@@ -16,7 +16,7 @@ const initialValues = {
 }
 
 const LoginForm = () => {
-    
+
     const navigate = useNavigate();
     const [isLoad, setisLoad] = useState(false)
     useEffect(() => {
@@ -54,7 +54,7 @@ const LoginForm = () => {
                         localStorage.setItem('refreshToken', data.refresh)
                         toast.success(<p className='font-[g-medium] capitalize'>Logged In Successfully !!</p>)
                         setTimeout(() => {
-                            navigate("/dashboard")
+                            navigate("/profile")
                         }, 2500);
                     } else {
                         toast.error(<p className='font-[g-medium] capitalize'>{data.detail}</p>)

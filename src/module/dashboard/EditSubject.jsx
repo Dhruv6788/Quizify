@@ -5,6 +5,7 @@ import { createSubjectSchema } from '../../schemas';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const EditSubject = () => {
+
     const { subject_code } = useParams();
     const [subject, setSubject] = useState({});
     const [file, setFile] = useState(null);
@@ -76,16 +77,17 @@ const EditSubject = () => {
     return (
         <>
             <Navbar />
-            <div className='w-full h-[6vh] bg-slate-700 flex items-center justify-between px-3 py-3'>
-                <h2 className='text-2xl text-green-300 font-[g-bold]'>Edit Subject</h2>
+            <div className='px-3'>
+                <h1 className='text-2xl font-[g-bold] text-green-600'>{subject.name}</h1>
+                <h2 className='text-lg text-green-700'>Edit Subject</h2>
             </div>
 
             <div className="form-container">
-                <form onSubmit={handleSubmit} className='w-[93%] mx-auto mt-10 font-[g-regular]'>
+                <form onSubmit={handleSubmit} className='w-[93%] mx-auto mt-4 font-[g-regular]'>
                     <div>
                         <input
                             type="text"
-                            className='w-full border-b border-green-400 placeholder:text-xl text-xl py-2 outline-none'
+                            className='w-full border border-green-400 rounded-md placeholder:text-xl text-xl py-2 px-2 outline-none'
                             placeholder='Subject Name'
                             id='subject_name'
                             name='subject_name'
@@ -94,9 +96,10 @@ const EditSubject = () => {
                             onBlur={handleBlur}
                         />
                     </div>
-                    <div className='mt-6'>
+
+                    <div className='mt-4'>
                         <input type="text"
-                            className='w-full border-b border-green-400 placeholder:text-xl text-xl py-2 outline-none'
+                            className='w-full border border-green-400 rounded-md placeholder:text-xl text-xl py-2 px-2 outline-none'
                             placeholder='Subject Code'
                             id='subject_code'
                             name='subject_code'
@@ -105,7 +108,8 @@ const EditSubject = () => {
                             onBlur={handleBlur}
                         />
                     </div>
-                    <div className='mt-6'>
+
+                    <div className='mt-4'>
                         <input
                             type="file"
                             name='file'
@@ -115,6 +119,7 @@ const EditSubject = () => {
                         />
                         <p className='text-sm text-gray-400 font-[g-medium] text-justify mt-2'>Please upload the Excel file containing the list of emails that will be added to the class.</p>
                     </div>
+
                     <button type="submit" className="mt-6 w-full py-3 bg-slate-700 rounded-lg text-green-300 text-lg">Submit</button>
                 </form>
             </div>

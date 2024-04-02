@@ -12,6 +12,7 @@ import { CircularProgress } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const SubjectDetail = () => {
+
     const { subject_code } = useParams();
     const [subject, setSubject] = useState([]);
     const [isLoad, setisLoad] = useState(false);
@@ -19,6 +20,7 @@ const SubjectDetail = () => {
     const navigateTo = useNavigate();
 
     const deleteSubject = async () => {
+
         const deleteapiUrl = import.meta.env.VITE_DELETE_SUBJECT + `${subject_code}/`;
         const requestOptions = {
             method: 'DELETE',
@@ -26,6 +28,7 @@ const SubjectDetail = () => {
                 'Authorization': 'JWT ' + localStorage.getItem('accessToken')
             }
         };
+
         try {
             const response = await fetch(deleteapiUrl, requestOptions);
             if (response.ok) {
@@ -60,6 +63,7 @@ const SubjectDetail = () => {
                 setisLoad(false);
             }
         };
+
         getSingleSubject();
     }, []);
 
@@ -85,14 +89,17 @@ const SubjectDetail = () => {
                             <h1 className='text-2xl font-[g-bold] text-green-600'>{subject.name}</h1>
                             <hr />
                         </div>
-                        <div className='flex justify-center gap-10 mt-5'>
-                            <div className='w-[40%] flex flex-col justify-center items-center border-2 p-3 hover:bg-slate-700 hover:text-white rounded-xl'>
+
+                        <div className='grid grid-cols-2 gap-10 mt-8 px-3'>
+
+                            <div onClick={() => navigateTo(`/${subject_code}/quizdetail`)} className='flex flex-col justify-center items-center border-2 p-3 hover:bg-slate-700 hover:text-white rounded-xl'>
                                 <div className='h-[70%] flex justify-center'>
                                     <img src={quiz} alt="" />
                                 </div>
                                 <p className='text-xl font-[g-medium]  mt-3'>Quiz</p>
                             </div>
-                            <div onClick={() => navigateTo(`/${subject_code}/students`)} className='w-[40%] flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
+
+                            <div onClick={() => navigateTo(`/${subject_code}/students`)} className='flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
                                 <div className='h-[70%] flex justify-center'>
                                     <img src={students} className='' alt="" />
                                 </div>
@@ -100,35 +107,40 @@ const SubjectDetail = () => {
                                     <p className='text-xl font-[g-medium] mt-3'>Students</p>
                                 </div>
                             </div>
-                        </div>
-                        <div className='flex justify-center gap-10 mt-5'>
-                            <div className='w-[40%] flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
+
+                            <div className='flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
                                 <div className='h-[70%] flex justify-center'>
                                     <img src={result} alt="" />
                                 </div>
                                 <p className='text-xl font-[g-medium] mt-3'>Results</p>
                             </div>
-                            <div onClick={() => navigateTo(`/${subject_code}/edit`)} className='w-[40%] flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
-                                <div className='h-[70%] flex justify-center'>
-                                    <img src={editbtn} className='w-[75%]' alt="" />
-                                </div>
-                                <p className='text-xl font-[g-medium] mt-3'>Edit Subject</p>
-                            </div>
-                        </div>
 
-                        <div className='flex justify-center gap-10 mt-5'>
-                            <div className='w-[40%] flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
+                            {localStorage.getItem('role') !== 'Student' &&
+                                <div onClick={() => navigateTo(`/${subject_code}/edit`)} className='flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
+                                    <div className='h-[70%] flex justify-center'>
+                                        <img src={editbtn} className='w-[75%]' alt="" />
+                                    </div>
+                                    <p className='text-xl font-[g-medium] mt-3'>Edit Subject</p>
+                                </div>
+                            }
+
+                            <div className='flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
                                 <div className='h-[70%] flex justify-center'>
                                     <img src={details} alt="" />
                                 </div>
                                 <p className='text-xl font-[g-medium] mt-3'>Details</p>
                             </div>
-                            <div className='w-[40%] flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
-                                <div className='h-[70%] flex justify-center'>
-                                    <img src={deletebtn} className='w-[75%]' onClick={handleDeleteConfirmation} alt="" />
+
+                            {localStorage.getItem('role') !== 'Student' &&
+                                <div className='flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
+                                    <div className='h-[70%] flex justify-center'>
+                                        <img src={deletebtn} className='w-[75%]' onClick={handleDeleteConfirmation} alt="" />
+                                    </div>
+                                    <p className='text-xl font-[g-medium] mt-3'>Delete</p>
                                 </div>
-                                <p className='text-xl font-[g-medium] mt-3'>Delete</p>
-                            </div>
+
+                            }
+
                         </div>
                     </div>
             }
@@ -143,6 +155,7 @@ const SubjectDetail = () => {
                     </div>
                 </div>
             )}
+
         </div>
     );
 };

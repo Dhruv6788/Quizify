@@ -1,11 +1,15 @@
 // src/App.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
 function Navbar() {
     const [isMenuOpen, setMenuOpen] = useState(false);
+    useEffect(() => {
+        console.log(localStorage.getItem('accessToken'))
+    }, [])
+
     const navigate = useNavigate()
     const toggleMenu = () => {
         setMenuOpen(!isMenuOpen);
@@ -80,7 +84,7 @@ function Navbar() {
                                 <div className='text-[#ffffff56] text-5xl  space-y-2 font-[g-medium] mt-10 px-3'>
                                     <button onClick={() => {
                                         localStorage.removeItem('accessToken')
-                                        navigate('/home')
+                                        navigate('/login')
                                     }} className='font-[g-light] capitalize'>Logout</button>
                                 </div>
                             }

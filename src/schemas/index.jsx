@@ -25,3 +25,7 @@ export const createSubjectSchema = Yup.object({
     subject_code: Yup.number().min(3).required("Please enter subject code")
 })
 
+export const createNewQuiz = Yup.object({
+    
+})
+
