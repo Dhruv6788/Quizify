@@ -91,7 +91,6 @@ const SubjectDetail = () => {
                         </div>
 
                         <div className='grid grid-cols-2 gap-10 mt-8 px-3'>
-
                             <div onClick={() => navigateTo(`/${subject_code}/quizdetail`)} className='flex flex-col justify-center items-center border-2 p-3 hover:bg-slate-700 hover:text-white rounded-xl'>
                                 <div className='h-[70%] flex justify-center'>
                                     <img src={quiz} alt="" />
@@ -132,7 +131,7 @@ const SubjectDetail = () => {
                             </div>
 
                             {localStorage.getItem('role') !== 'Student' &&
-                                <div className='flex flex-col justify-center items-center border-2 p-3 rounded-xl hover:bg-slate-700 hover:text-white'>
+                                <div className='flex flex-col justify-center items-center border-2 p-5 rounded-xl hover:bg-slate-700 hover:text-white'>
                                     <div className='h-[70%] flex justify-center'>
                                         <img src={deletebtn} className='w-[75%]' onClick={handleDeleteConfirmation} alt="" />
                                     </div>
@@ -144,6 +143,7 @@ const SubjectDetail = () => {
                         </div>
                     </div>
             }
+            
             {showConfirmation && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60">
                     <div className="w-[90%] h-[50%] bg-white px-8 rounded-xl shadow-lg flex flex-col justify-center">
@@ -155,7 +155,6 @@ const SubjectDetail = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };

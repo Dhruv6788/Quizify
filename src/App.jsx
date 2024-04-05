@@ -13,7 +13,10 @@ import AddSubject from './module/dashboard/AddSubject'
 import EditSubject from './module/dashboard/EditSubject';
 import QuizDetails from './module/quiz/QuizDetails';
 import AddQuiz from './module/quiz/AddQuiz';
+import EditQuiz from './module/quiz/EditQuiz'
 import Profile from './module/profile/Profile';
+import Quiz from './module/quiz/Quiz'
+import StartQuiz from './module/quiz/StartQuiz';
 
 function App() {
   return (
@@ -36,6 +39,9 @@ function App() {
             <Route path='/:subject_code/edit' element={<EditSubject />} />
             <Route path='/:subject_code/quizdetail' element={<QuizDetails />} />
             <Route path='/:subject_code/newquiz' element={<AddQuiz />} />
+            <Route path='/:subject_code/:quiz_slug' element={<Quiz />} />
+            <Route path='/:subject_code/:quiz_slug/edit' element={<EditQuiz />} />
+            <Route path='/:subject_code/:quiz_slug/startquiz' element={<StartQuiz />} />
           </Routes>
         </Router>
       </div>

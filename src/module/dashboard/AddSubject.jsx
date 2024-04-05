@@ -3,6 +3,7 @@ import Navbar from '../base/Navbar'
 import { useFormik } from 'formik'
 import { createSubjectSchema } from '../../schemas'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
 
 const initialValues = {
   subject_name: "",
@@ -34,9 +35,13 @@ const AddSubject = () => {
         const response = await fetch(apiUrl, requestOptions)
         const jsonData = await response.json()
         console.log(jsonData)
-        navigateTo('/dashboard')
+        toast.success(<p>{values.name} Created Successfully!!!</p>)
+        setTimeout(() => {
+          navigateTo('/dashboard')
+        }, 1000)
       } catch (error) {
         console.error("Something Went Wrong!!!")
+        toast.success(<p>Something Went Wrong !!!</p>)
       }
     }
   });
@@ -50,6 +55,7 @@ const AddSubject = () => {
   return (
     <>
       <Navbar />
+      <ToastContainer />
       <div className='w-full h-[6vh] bg-slate-700 flex items-center justify-between px-3 py-3'>
         <h2 className='text-2xl text-green-300 font-[g-bold]'>New Subject</h2>
       </div>

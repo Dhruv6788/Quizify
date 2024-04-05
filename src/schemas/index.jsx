@@ -25,7 +25,8 @@ export const createSubjectSchema = Yup.object({
     subject_code: Yup.number().min(3).required("Please enter subject code")
 })
 
-export const createNewQuiz = Yup.object({
-    
-})
-
+export const validationSchema = Yup.object().shape({
+    title: Yup.string().required('Quiz Name is required'),
+    description: Yup.string().required('Description is required'),
+    duration: Yup.number().required('Duration is required').positive('Duration must be positive').integer('Duration must be an integer'),
+});

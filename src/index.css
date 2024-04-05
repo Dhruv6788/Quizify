@@ -99,3 +99,11 @@ input:-webkit-autofill:active {
         display: none;
     }
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  
