@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: g-black;
+    src: url(./fonts/Gilroy-Black.ttf);
+}
+
+@font-face {
+    font-family: g-bold;
+    src: url(./fonts/Gilroy-Bold.ttf);
+}
+
+@font-face {
+    font-family: g-boldItalic;
+    src: url(./fonts/Gilroy-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: g-extraBold;
+    src: url(./fonts/Gilroy-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: g-extraBoldItalic;
+    src: url(./fonts/Gilroy-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+    font-family: g-heavy;
+    src: url(./fonts/Gilroy-Heavy.ttf);
+}
+
+@font-face {
+    font-family: g-heavyItalic;
+    src: url(./fonts/Gilroy-HeavyItalic.ttf);
+}
+
+@font-face {
+    font-family: g-light;
+    src: url(./fonts/Gilroy-Light.ttf);
+}
+
+@font-face {
+    font-family: g-lightItalic;
+    src: url(./fonts/Gilroy-LightItalic.ttf);
+}
+
+@font-face {
+    font-family: g-medium;
+    src: url(./fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+    font-family: g-regular;
+    src: url(./fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+    font-family: g-ultraLight;
+    src: url(./fonts/Gilroy-UltraLight.ttf);
+}
+
+@font-face {
+    font-family: g-uLightItalic;
+    src: url(./fonts/Gilroy-UltraLightItalic.ttf);
+}
+
+@font-face {
+    font-family: ppm-r;
+    src: url(./fonts/PPMori-Regular-945fa950.ttf);
+}
+
+@font-face {
+    font-family: ppm-s;
+    src: url(./fonts/PPMori-SemiBold-e4abbbc4.ttf);
+}
+@font-face {
+    font-family: KG;
+    src: url(./fonts/TheHoca-Outline.ttf);
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+@layer utilities {
+    .text-stroke {
+        -webkit-text-stroke: 1px #ffffff83;
+        -webkit-text-fill-color: transparent;
+    }
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
+
+
+@media (max-width: 767px) {
+    .mySwiper .swiper-button-next,
+    .mySwiper .swiper-button-prev {
+        display: none;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  
