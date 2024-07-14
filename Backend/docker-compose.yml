@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  django:
+    build: .
+    container_name: django
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/Quizify
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
+      - CELERY_BROKER=redis://redis:6379/0
+    depends_on:
+      - redis
+  redis:
+    image: "redis:alpine3.19"
+  celery:
+    build: .
+    command: celery -A quizify worker -l INFO
+    volumes:
+      - .:/Quizify
+    depends_on:
+      - django
+      - redis
+  celery-beat:
+    build: .
+    command: celery -A quizify beat -l INFO
+    volumes:
+      - .:/Quizify
+    depends_on:
+      - redis
